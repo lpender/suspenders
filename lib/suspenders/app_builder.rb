@@ -275,6 +275,10 @@ Rack::Timeout.timeout = (ENV["RACK_TIMEOUT"] || 10).to_i
         'app/assets/stylesheets/application.css.scss'
     end
 
+    def install_refills
+      run "rails generate refills:import flashes --only-stylesheets"
+    end
+
     def install_bitters
       run "bitters install --path app/assets/stylesheets"
     end
